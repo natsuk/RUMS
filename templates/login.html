@@ -5,6 +5,10 @@
     </head>
     <body>
     <h1>login form</h1>
+    {% if Student_id %}
+        <h3>{{ Student_id }}さんのカードを読み取りました。</h3>
+    {% endif%}
+    
     <dev>
         <form method='POST' action='/login/auth' >
             <p>パスワード</p>

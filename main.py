@@ -29,15 +29,17 @@ def index():
 @app.route('/login', methods=['GET','POST'] )
 def login():
     # request.method
-    return render_template('login.html')
+    Student_id=request.form['Student_id']
+    print(Student_id)
+    return render_template('login.html', Student_id=Student_id)
 
 @app.route('/login/auth', methods=['POST'])
 def auth():
     print("/login/auth")
     db=get_db()
     #print(g)
-    return redirect('/login')
-    # return render_template('auth_test.html')
+    # return redirect('/login')
+    return render_template('auth_test.html')
 
 @app.teardown_appcontext
 def close_connection(exception):
