@@ -14,6 +14,9 @@
             Student_id
             <input type='text' name='Student_id'>
             <input type='submit' value='input'>
+            {% if status %}
+                <p>カードは登録されていません</p>
+            {% endif%}
         </form>
     </body>
 </html>
