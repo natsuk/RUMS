@@ -9,9 +9,14 @@ import requests
 
 def connected(tag):
     print tag
-    postid =  str(tag.idm).encode("hex")  
-    r = requests.host("rums.rd.dendai.ac.jp/oyakata/getid.py",data = postid)
-    
+    id =  str(tag.idm).encode("hex")  
+    postid = {"id":id}
+    print postid
+    try:
+     r = requests.post("rums.rd.dendai.ac.jp/oyakata/test.cgi",data = postid)
+     print r.text
+    except:
+     print "ERROR"
 
 clf = nfc.ContactlessFrontend('usb')
 clf.connect(rdwr={'on-connect': connected})
