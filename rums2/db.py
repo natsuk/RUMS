@@ -51,7 +51,11 @@ class DB_operation(DB_init):
         if task == 2:
             self.cur.execute('select inout from '+TABLE+' where Student_id = \'' +Student_id+ '\'')
             temp=self.cur.fetchone()
-            self.usr_state=temp[0]
+            print(temp)
+            if temp ==None:
+                self.usr_state = 0
+            else:
+                self.usr_state=temp[0]
         elif task == 0:
             self.cur.execute('update '+TABLE+' set inout = 0 where Student_id = \''+Student_id+'\'')
             self.connect.commit()
