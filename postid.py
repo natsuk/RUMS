@@ -12,11 +12,11 @@ def connected(tag):
     id =  str(tag.idm).encode("hex")  
     postid = {"id":id}
     print postid
-    try:
-     r = requests.post("rums.rd.dendai.ac.jp/oyakata/test.cgi",data = postid)
-     print r.text
-    except:
-     print "ERROR"
+   # try:
+    r = requests.post("rums.rd.dendai.ac.jp/oyakata/test.cgi",data = postid)
+    print r.text
+ #   except:
+  #   print "ERROR"
 
 clf = nfc.ContactlessFrontend('usb')
 clf.connect(rdwr={'on-connect': connected})
