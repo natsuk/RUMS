@@ -10,10 +10,10 @@ import requests
 def connected(tag):
     print tag
     id =  str(tag.idm).encode("hex")  
-    postid = {"id":id}
+    postid = ["id":id]
     print postid
    # try:
-    r = requests.post("rums.rd.dendai.ac.jp/oyakata/test.cgi",data = postid)
+    r = requests.post("rums.rd.dendai.ac.jp/oyakata/RUMS/getid.py",data = postid)
     print r.text
  #   except:
   #   print "ERROR"
