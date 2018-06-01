@@ -1,10 +1,11 @@
 import requests
+import json
 
-postid = {"id":114514}
+postid = {"card_id":"16rd000"}
 print postid
+#成功例
 try:
-        #headers = {'Content-Type' : 'utf-8'}
- r = requests.post("http://rums.rd.dendai.ac.jp/home",data = postid)
+ r = requests.post("http://133.14.14.69:8080/test",postid)
  print r.text
 except:
  print "ERROR"
