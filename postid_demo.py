@@ -13,8 +13,7 @@ def connected(tag):
     postid = {"id":id}
     print postid
     try:
-        #headers = {'Content-Type' : 'utf-8'}
-        r = requests.post("http://rums.rd.dendai.ac.jp/home/oyakata/RUMS/getid.py",data = postid)
+        r = requests.post("http://127.0.0.1:5000",data = postid)
         print r.text
     except:
         print "ERROR"
