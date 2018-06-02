@@ -32,7 +32,7 @@ def input_pw(id):
   password += solt["token"]
   s_hash = hashlib.sha256(password).hexdigest()
   #print s_hash
-  post_h = {'pass':s_hash,'card_id':id}
+  post_h = {'card_id':id,'passeord':s_hash}
   post_h = json.dumps(post_h)
   #print post_h
   headers = {'content-type': 'application/json'}
@@ -60,13 +60,13 @@ if __name__ == '__main__':
   app = 0
   print token.text
   stat = token.status_code
-  if stat == 200:
+  if stat == 201:
    app =  input_pw(id)
+   if app == 1:
+    print "log in"
   elif stat == 403:
    print "this card is no use"
- 
-  if app == 1:
-   print "sacses"
-  else: 
-   print "OH,ERROR"
+  elif stat == 203: 
+   print "log out"
+
 
