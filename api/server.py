@@ -65,17 +65,18 @@ def pw_check():
 
     # POSTされたIDによってpasswardを引き出す
     cur.execute('select passwd, token from usr_table where Student_id = \'' +Student_id + '\'')
-
-    if len(cur.fetchall()) == 0:
+    response = Response()
+    data = cur.fetchone()
+    if len(data) == 0:
         response.status_code = 403
         conn.commit()
         cur.close()
         return response
-
-    data = cur.fetchone() # data[0] is passward. data[1] is token
+    
     true_pw = data[0]
     token = data[1]
-    
+    print (data)
+    print(true_pw)
     # DBから引き抜いたPWとtokenを合成、ハッシュ化
     made_hash = script.make_hash_of_synthesized_str(true_pw,token)
     
