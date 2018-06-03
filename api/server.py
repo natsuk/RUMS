@@ -25,6 +25,9 @@ def id_check():
     #IDがあるかないか
     if len(cur.fetchall()) == 0:
         response.status_code = 403
+        conn.commit()
+        cur.close()
+        return response
 
     # ログイン状態取得
     cur.execute('select inout from usr_table where Student_id = \'' +Student_id + '\'')
