@@ -7,18 +7,28 @@ from getpass import getpass
 
 
 token = "null"
+url =  "http://0.0.0.0:8080"
 
 def connected(tag):
  print tag
  id =  str(tag.idm).encode("hex")  
- postid = {"card_id":id}
+ postid = {"card_id": id}
  print postid
- try:
-  r = requests.post("http://133.14.14.69:8080/id_serch",postid)
-  global token
-  token = r
- except:
-  print "ERROR"
+ r = requests.post(url+"/id_check",postid)
+ global token
+ 
+ token = r
+ print token.text
+
+ stat = token.status_code
+ if stat == 201:
+  app =  input_pw(id)
+ elif stat == 203:
+  print "log out"
+ elif stat == 403:
+  print "this card is no use"
+
+
 
 """pass input"""
 def input_pw(id):
@@ -30,19 +40,26 @@ def input_pw(id):
  while(1):
   password = getpass('input password: ')
   password += solt["token"]
-  s_hash = hashlib.sha256(password).hexdigest()
+  s_hash = hashlib.sha256(password.encode()).hexdigest()
   #print s_hash
-  post_h = {'card_id':id,'passeord':s_hash}
+  post_h = {'card_id':id,'passwd':s_hash}
   post_h = json.dumps(post_h)
   #print post_h
   headers = {'content-type': 'application/json'}
-  r = requests.post("http://133.14.14.69:8080/pw_serch",post_h,headers = headers) 
+  r = requests.post(url+"/pw_check",post_h,headers = headers) 
 
   print "pass_request"
   print r.text
-  r = json.loads(r.text)
-  if r["stat"] == 'OK':
+  #r = json.loads(r.text)
+  stat = r.status_code
+
+
+  if stat == 202:
+   print "log in"
    return 1
+  elif stat == 404:
+   print "miss password"
+   return 3
   else:
    print "false pass" 
 
@@ -55,18 +72,5 @@ if __name__ == '__main__':
   card = clf.connect(rdwr={'on-connect': connected})
   clf.close()
 
-  id =  str(card.idm).encode("hex") 
-
-  app = 0
-  print token.text
-  stat = token.status_code
-  if stat == 201:
-   app =  input_pw(id)
-   if app == 1:
-    print "log in"
-  elif stat == 403:
-   print "this card is no use"
-  elif stat == 203: 
-   print "log out"
 
 
