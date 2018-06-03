@@ -4,7 +4,7 @@ import binascii
 import requests
 import json
 from getpass import getpass
-
+from time import sleep
 
 token = "null"
 url =  "http://0.0.0.0:8080"
@@ -70,6 +70,7 @@ if __name__ == '__main__':
  while(1):
   clf = nfc.ContactlessFrontend('usb')
   card = clf.connect(rdwr={'on-connect': connected})
+  sleep(3)
   clf.close()
 
 
