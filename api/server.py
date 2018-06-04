@@ -36,7 +36,7 @@ def id_check():
     
     if inout == 1: #ログイン状態にあった場合
         cur.execute('update usr_table set inout = 0 where Student_id = \''+Student_id+'\'')
-        response.status_code = 203
+        response.status_code = 201
     else:
         response.status_code = 201
         response.data = script.get_token_json(Student_id)
@@ -83,11 +83,11 @@ def pw_check():
     # パスワードの判定
     response = Response()
     if got_pw == made_hash:
-        response.status_code=202
+        response.status_code=201
         # DBのinout_stateを1に
         cur.execute('update usr_table set inout = 1 where Student_id = \''+Student_id+'\'')
     else:
-        response.status_code = 405
+        response.status_code = 403
    
     # DBの更新を保存&DBクローズ
     conn.commit()
