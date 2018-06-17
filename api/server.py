@@ -12,6 +12,7 @@ context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
 context.load_cert_chain('ssl/cert.pem', 'ssl/key.pem')
 app.secret_key = 'hogehog'
 
+### API server ############################################################
 @app.route('/id_check',methods=['POST'])
 def id_check():
     # POSTされたIDを取得
@@ -61,7 +62,7 @@ def pw_check():
     pw_msg = request.json
     # jsonの展開
     Student_id = pw_msg['card_id']
-    got_pw = pw_msg = pw_msg['passwd']
+    got_pw = pw_msg['passwd']
     print(Student_id)
     print(got_pw) 
     # DB接続(初期化)
@@ -101,6 +102,36 @@ def pw_check():
     conn.commit()
     cur.close()
     return response
+
+@app.route('/register',methods=['POST'])
+def register():
+    # POSTされたjsonの取得
+    json_msg = request.json
+    # jsonの展開
+    Student_id = json_msg['card_id']
+    pw = json_msg['passwd']
+    print(Student_id)
+    print(pw)
+    # DB接続(初期化)
+    conn = sqlite3.connect(database)
+    cur = conn.cursor()
+
+    # POSTされたID,PWをデータベースに登録
+    cur.execute('insert into usr_table values(\''+Student_id+'\',\''+pw+'\',0,"")')
+    conn.commit()
+    id = cur.execute('select Student_id from usr_table where Student_id = \'' +Student_id+ '\'')
+    response = Response()
+    if len(cur.fetchall()) == 0:
+        response.status_code = 403
+        cur.close()
+        return response
+    else:
+        response.status_code = 201
+        cur.close()
+        logging.info('REGISTER: '+Student_id+' registered')
+        return response
+
+### HTML server #########################################################
 
 # DBの操作選択画面
 @app.route('/db_operation' )
