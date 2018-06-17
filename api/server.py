@@ -23,7 +23,7 @@ def id_check():
     cur = conn.cursor()
 
     # POSTされたIDをDBと照合するための処理
-    id = cur.execute('select Student_id from usr_table where Student_id = \'' +Student_id+ '\'')
+    cur.execute('select Student_id from usr_table where Student_id = \'' +Student_id+ '\'')
     response = Response()
     #IDがあるかないか
     if len(cur.fetchall()) == 0:
@@ -115,21 +115,29 @@ def register():
     # DB接続(初期化)
     conn = sqlite3.connect(database)
     cur = conn.cursor()
+    response = Response()
 
     # POSTされたID,PWをデータベースに登録
-    cur.execute('insert into usr_table values(\''+Student_id+'\',\''+pw+'\',0,"")')
-    conn.commit()
-    id = cur.execute('select Student_id from usr_table where Student_id = \'' +Student_id+ '\'')
-    response = Response()
-    if len(cur.fetchall()) == 0:
+    try:
+        cur.execute('insert into usr_table values(\''+Student_id+'\',\''+pw+'\',0,"")')
+        conn.commit()
+        id = cur.execute('select Student_id from usr_table where Student_id = \'' +Student_id+ '\'')
+        if len(cur.fetchall()) == 0:
+            response.status_code = 403
+            cur.close()
+            return response
+        else:
+            response.status_code = 201
+            cur.close()
+            logging.info('REGISTER: '+Student_id+' registered')
+            return response
+    except:
+        cur.close()
         response.status_code = 403
-        cur.close()
+        logging.warning('REGISTER ERROR: maybe UNIQUE')
+        print('!!! cannot register card_id. maybe UNIQUE.!!!')
         return response
-    else:
-        response.status_code = 201
-        cur.close()
-        logging.info('REGISTER: '+Student_id+' registered')
-        return response
+        
 
 ### HTML server #########################################################
 
