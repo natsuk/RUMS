@@ -8,7 +8,7 @@ from time import sleep
 
 token = "null"
 #接続先ＵＲＬの指定（今は自身に対して行ってる）
-url =  "http://0.0.0.0:8080"
+url =  "https://0.0.0.0:8443"
 
 def connected(tag):
 #タッチされたらタグとか出力
@@ -17,7 +17,7 @@ def connected(tag):
  id =  str(tag.idm).encode("hex")  
  postid = {"card_id": id}
  print postid
- r = requests.post(url+"/id_check",postid)
+ r = requests.post(url+"/id_check",postid,verify=False)
  
  #帰ってきたものの確認
  global token
@@ -58,7 +58,7 @@ def input_pw(id):
   #print post_h
   #データ渡す
   headers = {'content-type': 'application/json'}
-  r = requests.post(url+"/pw_check",post_h,headers = headers) 
+  r = requests.post(url+"/pw_check",post_h,headers = headers,verify=False) 
 
  #帰ってきたデータを読む
   print "pass_request"
