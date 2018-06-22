@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from flask import Flask, render_template,request,g,redirect,url_for,Response,session
 import sqlite3
 import hashlib
@@ -6,11 +7,29 @@ import script
 from db import DB_operation
 import ssl
 import logging
+import smtplib
+from email.mime.text import MIMEText
+from email.header import Header
 
 app = Flask(__name__)
 context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
 context.load_cert_chain('ssl/cert.pem', 'ssl/key.pem')
 app.secret_key = 'hogehog'
+
+def sendloginmail(id):
+    charset       = "iso-2022-jp"
+    serverMailaddress = "" #送信元アドレス
+    password      = "" #送信元アドレスのパスワード
+    toMailaddress = "" #送信先のアドレス
+
+    msg = MIMEText("%sが入室しました" % (id), "plain", charset)
+    msg["subject"] = Header("Test to send mail".encode(charset), charset)
+    smtp_obj = smtplib.SMTP_SSL("smtp.mail.yahoo.co.jp", 465)
+    smtp_obj.ehlo()
+    smtp_obj.login(serverMailaddress, password)
+    smtp_obj.sendmail(serverMailaddress, toMailaddress, msg.as_string())
+
+    smtp_obj.quit()
 
 ### API server ############################################################
 @app.route('/id_check',methods=['POST'])
@@ -37,7 +56,7 @@ def id_check():
     cur.execute('select inout from usr_table where Student_id = \'' +Student_id + '\'')
     data = cur.fetchone() # data[0] is inout
     inout = data[0]
-    
+
     if inout == 1: #ログイン状態にあった場合
         cur.execute('update usr_table set inout = 0 where Student_id = \''+Student_id+'\'')
         response.status_code = 201
@@ -48,11 +67,11 @@ def id_check():
         # DBに発行したトークンを保存
         cur.execute('update usr_table set token = \''+script.get_token(Student_id)+'\'where Student_id = \''+Student_id+'\'')
         logging.info('CARD LOADED: '+Student_id+' was touched.')
-    
+
     # DBの更新を保存&DBクローズ
     conn.commit()
     cur.close()
-    
+
     response.content_type = 'application/json'
     return response
 
@@ -64,7 +83,7 @@ def pw_check():
     Student_id = pw_msg['card_id']
     got_pw = pw_msg['passwd']
     print(Student_id)
-    print(got_pw) 
+    print(got_pw)
     # DB接続(初期化)
     conn = sqlite3.connect(database)
     cur = conn.cursor()
@@ -79,14 +98,14 @@ def pw_check():
         cur.close()
         logging.info('UNEXPECTED ERROR: maybe DB error.(/pw_check)')
         return response
-    
+
     true_pw = data[0]
     token = data[1]
     print (data)
     print(true_pw)
     # DBから引き抜いたPWとtokenを合成、ハッシュ化
     made_hash = script.make_hash_of_synthesized_str(true_pw,token)
-    
+
     # パスワードの判定
     response = Response()
     if got_pw == made_hash:
@@ -94,10 +113,11 @@ def pw_check():
         # DBのinout_stateを1に
         cur.execute('update usr_table set inout = 1 where Student_id = \''+Student_id+'\'')
         logging.info('LOGIN: '+Student_id+' loged in.')
+        sendloginmail(Student_id)
     else:
         response.status_code = 403
         #logging.info('PWERROR: '+Student_id+' made a mistake in PW.')
-   
+
     # DBの更新を保存&DBクローズ
     conn.commit()
     cur.close()
@@ -137,7 +157,7 @@ def register():
         logging.warning('REGISTER ERROR: maybe UNIQUE')
         print('!!! cannot register card_id. maybe UNIQUE.!!!')
         return response
-        
+
 
 ### HTML server #########################################################
 
