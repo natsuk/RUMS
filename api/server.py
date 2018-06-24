@@ -95,8 +95,8 @@ def pw_check():
         # DBのinout_stateを1に
         cur.execute('update usr_table set inout = 1 where Student_id = \''+Student_id+'\'')
         logging.info('LOGIN: '+Student_id+' loged in.')
-        if mail['debug']==false: # trueでメール送信
-            mailfunc.send(Studentid,mail['mail'])
+        if mail['debug']==False: # trueでメール送信
+            mailfunc.send(Student_id,mail)
     else:
         response.status_code = 403
    
