@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Capacity</h3>
+<div class="panel panel-default">
+    <div class="panel-heading">ただいまの使用状況は</div>
+    <div class="row">
+        <div class="col-sm-2 col-xs-3">
+            <div class="panel panel-default">
+                <div class="panel-body text-right">
+                    <script>
+                    var raito={{raito}};
+                    var str;
+                    if (raito<=50) str='<div class="alert alert-info" role="alert">'+raito+'</div>';
+                    else if (raito<=75) str='<div class="alert alert-warning" role="alert">'+raito+'</div>';
+                    else str='<div class="alert alert-denger" role="alert">'+raito+'</div>';
+                    document.write(str+'%です。');
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,10 @@
+{
+    "DATABASE":"usr.db",
+    "TABLE":"usr_table",
+    "capacity":10,
+    "mail":{
+	    "debug":true, 
+	    "from_address":"rums8272@yahoo.co.jp",
+	    "from_pw":"smtprumstest@9526",
+	    "to_address":"16rd155@ms.dendai.ac.jp"}
+}

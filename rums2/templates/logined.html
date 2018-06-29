@@ -1,0 +1,28 @@
+<!-- DOCUMENT HTML -->
+<html>
+    <head>
+        <title>logined  </title>
+    </head>
+
+    <body>
+    <h1>ログインしました</h1>
+    {% if Student_id %}
+        <h3>{{ Student_id }}さんのログインを確認しました。</h3>
+    {% endif %}
+    <p><span id='timer'></span>秒後にリダイレクトされます。</p>
+    <script>
+        var time = 3;
+        time=setInterval("countDown()",1000);
+        time -= 1;
+
+	//setTimeout("location.href='index.html'",1000*5);
+        if(time <= 0){
+            document.write("<input type = hidden action = '/'>");
+        document.getElementById('timer').textContent = time;
+        }
+    </script>
+    <form action='/card_read' method='GET'>
+        <input type='submit' value='戻る'>
+        </form>
+    </body>
+</html>
