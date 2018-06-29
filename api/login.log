@@ -1,0 +1,49 @@
+2018-06-22 18:41:34,901  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-06-22 18:41:37,206 LOGIN: CASHMERE loged in.
+2018-06-22 18:41:37,433 Exception on /pw_check [POST]
+Traceback (most recent call last):
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 99, in pw_check
+    mailfunc.send(Student_id,mail)
+  File "/home/natsuki/api/mailfunc.py", line 18, in send
+    smtp_obj.login(serverMailaddress, password)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/smtplib.py", line 730, in login
+    raise last_exception
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/smtplib.py", line 721, in login
+    initial_response_ok=initial_response_ok)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/smtplib.py", line 642, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'authorization failed (#5.7.0)')
+2018-06-22 18:41:37,441 127.0.0.1 - - [22/Jun/2018 18:41:37] "POST /pw_check HTTP/1.1" 500 -
+2018-06-22 18:43:05,399  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-06-22 18:43:08,588 LOGIN: CASHMERE loged in.
+2018-06-22 18:43:10,064 127.0.0.1 - - [22/Jun/2018 18:43:10] "POST /pw_check HTTP/1.1" 201 -
+2018-06-22 18:45:11,093  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-06-22 18:45:13,692 LOGOUT: CASHMERE logged out.
+2018-06-22 18:45:13,715 127.0.0.1 - - [22/Jun/2018 18:45:13] "POST /id_check HTTP/1.1" 201 -
+2018-06-22 18:45:17,485 LOGIN: CASHMERE loged in.
+2018-06-22 18:45:19,065 127.0.0.1 - - [22/Jun/2018 18:45:19] "POST /pw_check HTTP/1.1" 201 -
+2018-06-22 18:48:20,895  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-06-22 18:48:25,297 LOGOUT: CASHMERE logged out.
+2018-06-22 18:48:25,313 127.0.0.1 - - [22/Jun/2018 18:48:25] "POST /id_check HTTP/1.1" 201 -
+2018-06-22 18:48:26,994 LOGIN: CASHMERE loged in.
+2018-06-22 18:48:28,607 127.0.0.1 - - [22/Jun/2018 18:48:28] "POST /pw_check HTTP/1.1" 201 -
+2018-06-22 18:48:31,672 LOGOUT: CASHMERE logged out.
+2018-06-22 18:48:31,694 127.0.0.1 - - [22/Jun/2018 18:48:31] "POST /id_check HTTP/1.1" 201 -
+2018-06-22 18:48:33,360 LOGIN: CASHMERE loged in.
+2018-06-22 18:48:34,956 127.0.0.1 - - [22/Jun/2018 18:48:34] "POST /pw_check HTTP/1.1" 201 -
+2018-06-22 18:48:36,653 LOGOUT: CASHMERE logged out.
+2018-06-22 18:48:36,675 127.0.0.1 - - [22/Jun/2018 18:48:36] "POST /id_check HTTP/1.1" 201 -
+2018-06-22 18:48:38,699 LOGIN: CASHMERE loged in.
+2018-06-22 18:48:40,282 127.0.0.1 - - [22/Jun/2018 18:48:40] "POST /pw_check HTTP/1.1" 201 -
