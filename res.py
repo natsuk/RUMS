@@ -61,6 +61,9 @@ class res():
             return 1
         elif stat == 403:
             return 0
+        else:
+            return 3
+            
 
     """カードの登録　1=成功　0=失敗"""
     def register(self,id,passwd):
