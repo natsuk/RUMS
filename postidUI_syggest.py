@@ -36,7 +36,7 @@ def connected(tag):
   app =  input_pw(id)
  elif stat == 201:
 
-    root = Tk()
+    #root = Tk()
     root.title('Logout Form')
     frame1 = ttk.Frame(root)
     label1 = ttk.Label(frame1,text = 'Logout')
@@ -51,7 +51,7 @@ def connected(tag):
     print "log out"
  elif stat == 403:
 
-     root = Tk()
+     #root = Tk()
      root.title('Login Form')
      frame1 = ttk.Frame(root)
      label1 = ttk.Label(frame1,text = 'This cards cannot use')
@@ -82,9 +82,9 @@ def input_pw(id):
 
  
 
- while(1):
 
-  root = Tk()
+
+  #root = Tk()
   root.title('Login Form')
   frame1 = ttk.Frame(root)
   label1 = ttk.Label(frame1, text = 'Input password')
@@ -130,7 +130,7 @@ def input_pw(id):
 
   if stat == 201:
 
-   root = Tk()
+   #root = Tk()
    root.title('Login Form')
    frame1 = ttk.Frame(root)
    label1 = ttk.Label(frame1,text = 'Login')
@@ -146,7 +146,7 @@ def input_pw(id):
    return 1
   elif stat == 403:
 
-     root = Tk()
+     #root = Tk()
      root.title('Login Form')
      frame1 = ttk.Frame(root)
      label1 = ttk.Label(frame1,text = 'miss password.Please retry to touch.')
@@ -164,7 +164,7 @@ def input_pw(id):
      return 3
   else:
 
-    root = Tk()
+    #root = Tk()
     root.title('Login Form')
     frame1 = ttk.Frame(root)
     label1 = ttk.Label(frame1,text = 'False pass')
