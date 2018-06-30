@@ -34,7 +34,7 @@ def connected(tag):
  stat = token.status_code
  if stat == 201:
   app =  input_pw(id)
- elif stat == 203:
+ elif stat == 201:
 
     root = Tk()
     root.title('Logout Form')
