@@ -13,24 +13,24 @@ import types
 
 
 token = "null"
-#接続先ＵＲＬの指定（今は自身に対して行ってる）
+
 url =  "https://0.0.0.0:8443"
 
 def connected(tag):
-#タッチされたらタグとか出力
+
  print tag
- #カードＩＤを１６進数の変換して辞書型で渡す
+ 
  id =  str(tag.idm).encode("hex")  
  postid = {"card_id": id}
  print postid
  r = requests.post(url+"/id_check",postid,verify=False)
  
- #帰ってきたものの確認
+ 
  global token
  token = r
  print token.text
 
- #ステータスコードで動作を変える
+
  stat = token.status_code
  if stat == 201:
   app =  input_pw(id)
@@ -69,42 +69,46 @@ def connected(tag):
 
 """pass input"""
 def input_pw(id):
-#パスワード入力
- #printf"input password"
-#帰ってきたデータを解いてデータを引き抜く
  solt = json.loads(token.text)
- #solt = token
+
  print "solt"
  print solt["token"]
+ 
+ 
+ def final(event):
+     print "final"
+     #global root
+     root.quit()
 
- #id_pass = StringVar()
- #id_pass.set("")
+ 
 
  while(1):
-#パスワード入力求める
 
   root = Tk()
   root.title('Login Form')
   frame1 = ttk.Frame(root)
   label1 = ttk.Label(frame1, text = 'Input password')
   entry1 = ttk.Entry(frame1, width = 15, show = '*')
-  button1 = ttk.Button(frame1,text = 'OK',command=root.destroy)
+  button1 = ttk.Button(frame1,text = 'OK')
   frame1.grid(row = 0, column = 0, sticky = (N,E,S,W))
-  label1.grid(row = 3, column = 2, sticky = E)
+  label1.grid(row = 1, column = 2, sticky = N)
   button1.grid(row = 4, column = 2)
+  button1.bind("<Button-1>",final)
+  button1.bind("<Return>",final)
   entry1.grid(row = 2,column = 2)
   for child in frame1.winfo_children():
-    child.grid_configure(padx = 5,pady = 5)
+    child.grid_configure(padx = 10,pady = 10)
   root.mainloop()
 
   password=entry1.get()
   #id_pass =id_pass.get()
   #print id_pass
   #print type(id_pass)
+  
+  print entry1.get()
 
   #password = id_pass
   #password = getpass()
-#送信用にデータ変換
   password += solt["token"]
   s_hash = hashlib.sha256(password.encode()).hexdigest()
   
@@ -112,18 +116,18 @@ def input_pw(id):
   post_h = json.dumps(post_h)
   
   #print post_h
-  #データ渡す
+
   headers = {'content-type': 'application/json'}
   r = requests.post(url+"/pw_check",post_h,headers = headers,verify=False) 
 
- #帰ってきたデータを読む
+ 
   print "pass_request"
   print r.text
   #r = json.loads(r.text)
   stat = r.status_code
 
 
-#返信で動作を変える
+
   if stat == 201:
 
    root = Tk()
@@ -132,10 +136,10 @@ def input_pw(id):
    label1 = ttk.Label(frame1,text = 'Login')
    button1 = ttk.Button(frame1, text = 'OK', command = sys.exit)
    frame1.grid(row = 0, column = 0, sticky = (N,E,S,W))
-   label1.grid(row = 2, column = 2, sticky = E)
+   label1.grid(row = 2, column = 2, sticky = N)
    button1.grid(row = 3, column = 2)
    for child in frame1.winfo_children():
-     child.grid_configure(padx = 5, pady = 5)
+     child.grid_configure(padx = 10, pady = 10)
    root.mainloop()
 
    print "log in"
@@ -145,13 +149,15 @@ def input_pw(id):
      root = Tk()
      root.title('Login Form')
      frame1 = ttk.Frame(root)
-     label1 = ttk.Label(frame1,text = 'miss password')
-     button1 = ttk.Button(frame1, text = 'OK', command = root.destroy)
+     label1 = ttk.Label(frame1,text = 'miss password.Please retry to touch.')
+     button1 = ttk.Button(frame1, text = 'OK')
      frame1.grid(row = 0, column = 0, sticky = (N,E,S,W))
      label1.grid(row = 2, column = 2, sticky = E)
      button1.grid(row = 3, column = 2)
+     button1.bind("<Button-1>",final)
+     button1.bind("<Return>",final)
      for child in frame1.winfo_children():
-        child.grid_configure(padx = 5, pady = 5)
+        child.grid_configure(padx = 10, pady = 10)
      root.mainloop()
 
      print "miss password"
@@ -162,12 +168,14 @@ def input_pw(id):
     root.title('Login Form')
     frame1 = ttk.Frame(root)
     label1 = ttk.Label(frame1,text = 'False pass')
-    button1 = ttk.Button(frame1, text = 'OK', command = sys.exit)
+    button1 = ttk.Button(frame1, text = 'OK')
+    button1.bind("<Button-1>",final)
+    button1.bind("<Return>",final)
     frame1.grid(row = 0, column = 0, sticky = (N,E,S,W))
     label1.grid(row = 2, column = 2, sticky = E)
     button1.grid(row = 3, column = 2)
     for child in frame1.winfo_children():
-       child.grid_configure(padx = 5, pady = 5)
+       child.grid_configure(padx = 10, pady = 10)
     root.mainloop()
 
 
@@ -186,12 +194,12 @@ if __name__ == '__main__':
   frame1.grid(row = 0, column = 0, sticky = (N,E,S,W))
   label1.grid(row = 2, column = 2, sticky = E)
   for child in frame1.winfo_children():
-     child.grid_configure(padx = 5, pady = 5)
+     child.grid_configure(padx = 10, pady = 10)
   root.update()
 
 
   clf = nfc.ContactlessFrontend('usb')
-  #カードタッチで以下の関数が呼び出される
+
   card = clf.connect(rdwr={'on-connect': connected})
   sleep(3)
   clf.close()
