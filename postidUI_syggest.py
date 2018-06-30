@@ -91,13 +91,13 @@ def input_pw(id):
   entry1 = ttk.Entry(frame1, width = 15, show = '*')
   button1 = ttk.Button(frame1,text = 'OK')
   frame1.grid(row = 0, column = 0, sticky = (N,E,S,W))
-  label1.grid(row = 1, column = 2, sticky = E)
+  label1.grid(row = 1, column = 2, sticky = N)
   button1.grid(row = 4, column = 2)
   button1.bind("<Button-1>",final)
   button1.bind("<Return>",final)
   entry1.grid(row = 2,column = 2)
   for child in frame1.winfo_children():
-    child.grid_configure(padx = 5,pady = 5)
+    child.grid_configure(padx = 10,pady = 10)
   root.mainloop()
 
   password=entry1.get()
@@ -136,10 +136,10 @@ def input_pw(id):
    label1 = ttk.Label(frame1,text = 'Login')
    button1 = ttk.Button(frame1, text = 'OK', command = sys.exit)
    frame1.grid(row = 0, column = 0, sticky = (N,E,S,W))
-   label1.grid(row = 2, column = 2, sticky = E)
+   label1.grid(row = 2, column = 2, sticky = N)
    button1.grid(row = 3, column = 2)
    for child in frame1.winfo_children():
-     child.grid_configure(padx = 5, pady = 5)
+     child.grid_configure(padx = 10, pady = 10)
    root.mainloop()
 
    print "log in"
@@ -157,7 +157,7 @@ def input_pw(id):
      button1.bind("<Button-1>",final)
      button1.bind("<Return>",final)
      for child in frame1.winfo_children():
-        child.grid_configure(padx = 5, pady = 5)
+        child.grid_configure(padx = 10, pady = 10)
      root.mainloop()
 
      print "miss password"
@@ -175,7 +175,7 @@ def input_pw(id):
     label1.grid(row = 2, column = 2, sticky = E)
     button1.grid(row = 3, column = 2)
     for child in frame1.winfo_children():
-       child.grid_configure(padx = 5, pady = 5)
+       child.grid_configure(padx = 10, pady = 10)
     root.mainloop()
 
 
@@ -194,7 +194,7 @@ if __name__ == '__main__':
   frame1.grid(row = 0, column = 0, sticky = (N,E,S,W))
   label1.grid(row = 2, column = 2, sticky = E)
   for child in frame1.winfo_children():
-     child.grid_configure(padx = 5, pady = 5)
+     child.grid_configure(padx = 10, pady = 10)
   root.update()
 
 
