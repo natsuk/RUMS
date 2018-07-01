@@ -9,32 +9,21 @@ from Tkinter import *
 import ttk
 import types
 
+import res
 
-
-
-token = "null"
 
 url =  "https://0.0.0.0:8443"
 
 def connected(tag):
-
+ global resp
+ resp = res.res(url)
  print tag
- 
- id =  str(tag.idm).encode("hex")  
- postid = {"card_id": id}
- print postid
- r = requests.post(url+"/id_check",postid,verify=False)
- 
- 
- global token
- token = r
- print token.text
+ id =  str(tag.idm).encode("hex")
+ stat = resp.post_id(id)
 
-
- stat = token.status_code
- if stat == 201:
-  app =  input_pw(id)
- elif stat == 201:
+ if stat == 1:
+  app =  input_pw()
+ elif stat == 2:
 
     #root = Tk()
     root.title('Logout Form')
@@ -49,7 +38,7 @@ def connected(tag):
     root.mainloop()
 
     print "log out"
- elif stat == 403:
+ elif stat == 3 or stat == 0:
 
      #root = Tk()
      root.title('Login Form')
@@ -68,14 +57,11 @@ def connected(tag):
 
 
 """pass input"""
-def input_pw(id):
- solt = json.loads(token.text)
-
- print "solt"
- print solt["token"]
+def input_pw():
  
  
- def final(event):
+ 
+  def final(event):
      print "final"
      #global root
      root.quit()
@@ -101,34 +87,13 @@ def input_pw(id):
   root.mainloop()
 
   password=entry1.get()
-  #id_pass =id_pass.get()
-  #print id_pass
-  #print type(id_pass)
   
   print entry1.get()
 
-  #password = id_pass
-  #password = getpass()
-  password += solt["token"]
-  s_hash = hashlib.sha256(password.encode()).hexdigest()
-  
-  post_h = {'card_id':id,'passwd':s_hash}
-  post_h = json.dumps(post_h)
-  
-  #print post_h
-
-  headers = {'content-type': 'application/json'}
-  r = requests.post(url+"/pw_check",post_h,headers = headers,verify=False) 
-
- 
-  print "pass_request"
-  print r.text
-  #r = json.loads(r.text)
-  stat = r.status_code
+  stat = resp.post_pw(password)
 
 
-
-  if stat == 201:
+  if stat == 1:
 
    #root = Tk()
    root.title('Login Form')
@@ -144,7 +109,7 @@ def input_pw(id):
 
    print "log in"
    return 1
-  elif stat == 403:
+  elif stat == 0:
 
      #root = Tk()
      root.title('Login Form')
