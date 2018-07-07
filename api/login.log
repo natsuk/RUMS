@@ -1,0 +1,413 @@
+2018-06-22 18:41:34,901  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-06-22 18:41:37,206 LOGIN: CASHMERE loged in.
+2018-06-22 18:41:37,433 Exception on /pw_check [POST]
+Traceback (most recent call last):
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 99, in pw_check
+    mailfunc.send(Student_id,mail)
+  File "/home/natsuki/api/mailfunc.py", line 18, in send
+    smtp_obj.login(serverMailaddress, password)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/smtplib.py", line 730, in login
+    raise last_exception
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/smtplib.py", line 721, in login
+    initial_response_ok=initial_response_ok)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/smtplib.py", line 642, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'authorization failed (#5.7.0)')
+2018-06-22 18:41:37,441 127.0.0.1 - - [22/Jun/2018 18:41:37] "POST /pw_check HTTP/1.1" 500 -
+2018-06-22 18:43:05,399  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-06-22 18:43:08,588 LOGIN: CASHMERE loged in.
+2018-06-22 18:43:10,064 127.0.0.1 - - [22/Jun/2018 18:43:10] "POST /pw_check HTTP/1.1" 201 -
+2018-06-22 18:45:11,093  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-06-22 18:45:13,692 LOGOUT: CASHMERE logged out.
+2018-06-22 18:45:13,715 127.0.0.1 - - [22/Jun/2018 18:45:13] "POST /id_check HTTP/1.1" 201 -
+2018-06-22 18:45:17,485 LOGIN: CASHMERE loged in.
+2018-06-22 18:45:19,065 127.0.0.1 - - [22/Jun/2018 18:45:19] "POST /pw_check HTTP/1.1" 201 -
+2018-06-22 18:48:20,895  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-06-22 18:48:25,297 LOGOUT: CASHMERE logged out.
+2018-06-22 18:48:25,313 127.0.0.1 - - [22/Jun/2018 18:48:25] "POST /id_check HTTP/1.1" 201 -
+2018-06-22 18:48:26,994 LOGIN: CASHMERE loged in.
+2018-06-22 18:48:28,607 127.0.0.1 - - [22/Jun/2018 18:48:28] "POST /pw_check HTTP/1.1" 201 -
+2018-06-22 18:48:31,672 LOGOUT: CASHMERE logged out.
+2018-06-22 18:48:31,694 127.0.0.1 - - [22/Jun/2018 18:48:31] "POST /id_check HTTP/1.1" 201 -
+2018-06-22 18:48:33,360 LOGIN: CASHMERE loged in.
+2018-06-22 18:48:34,956 127.0.0.1 - - [22/Jun/2018 18:48:34] "POST /pw_check HTTP/1.1" 201 -
+2018-06-22 18:48:36,653 LOGOUT: CASHMERE logged out.
+2018-06-22 18:48:36,675 127.0.0.1 - - [22/Jun/2018 18:48:36] "POST /id_check HTTP/1.1" 201 -
+2018-06-22 18:48:38,699 LOGIN: CASHMERE loged in.
+2018-06-22 18:48:40,282 127.0.0.1 - - [22/Jun/2018 18:48:40] "POST /pw_check HTTP/1.1" 201 -
+2018-06-25 16:01:45,789  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-06-25 16:01:53,640 LOGOUT: CASHMERE logged out.
+2018-06-25 16:01:53,651 127.0.0.1 - - [25/Jun/2018 16:01:53] "POST /id_check HTTP/1.1" 201 -
+2018-06-25 16:01:59,290 CARD LOADED: CASHMERE was touched.
+2018-06-25 16:01:59,300 127.0.0.1 - - [25/Jun/2018 16:01:59] "POST /id_check HTTP/1.1" 201 -
+2018-06-25 16:02:10,623 127.0.0.1 - - [25/Jun/2018 16:02:10] "POST /pw_check HTTP/1.1" 403 -
+2018-06-25 16:02:55,789 127.0.0.1 - - [25/Jun/2018 16:02:55] "GET /db_operation HTTP/1.1" 200 -
+2018-06-25 16:02:56,424 127.0.0.1 - - [25/Jun/2018 16:02:56] "GET /favicon.ico HTTP/1.1" 404 -
+2018-06-25 16:02:57,471 127.0.0.1 - - [25/Jun/2018 16:02:57] "GET /db_operation/print HTTP/1.1" 200 -
+2018-06-25 16:03:45,841 127.0.0.1 - - [25/Jun/2018 16:03:45] "GET /db_operation/print HTTP/1.1" 200 -
+2018-06-25 16:03:51,059 LOGIN: CASHMERE loged in.
+2018-06-25 16:03:55,366  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-06-25 16:03:58,852 CARD LOADED: CASHMERE was touched.
+2018-06-25 16:03:58,869 127.0.0.1 - - [25/Jun/2018 16:03:58] "POST /id_check HTTP/1.1" 201 -
+2018-06-25 16:04:02,646 LOGIN: CASHMERE loged in.
+2018-06-25 16:04:04,298 127.0.0.1 - - [25/Jun/2018 16:04:04] "POST /pw_check HTTP/1.1" 201 -
+2018-06-25 16:04:18,268 LOGIN: CASHMERE loged in.
+2018-06-25 16:04:19,870 127.0.0.1 - - [25/Jun/2018 16:04:19] "POST /pw_check HTTP/1.1" 201 -
+2018-06-25 16:04:25,227 127.0.0.1 - - [25/Jun/2018 16:04:25] "GET /db_operation/print HTTP/1.1" 200 -
+2018-06-25 16:07:45,056  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-06-25 16:07:52,491 127.0.0.1 - - [25/Jun/2018 16:07:52] "GET /db_operation HTTP/1.1" 200 -
+2018-06-25 16:07:57,359 127.0.0.1 - - [25/Jun/2018 16:07:57] "GET /room HTTP/1.1" 200 -
+2018-06-25 16:07:57,702 127.0.0.1 - - [25/Jun/2018 16:07:57] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2018-06-25 16:07:57,898 127.0.0.1 - - [25/Jun/2018 16:07:57] "GET /static/jquery/jquery-3.3.1.min.js HTTP/1.1" 404 -
+2018-06-25 16:07:58,009 127.0.0.1 - - [25/Jun/2018 16:07:58] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+2018-07-07 21:43:15,709  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 21:44:37,563  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 21:45:18,174 127.0.0.1 - - [07/Jul/2018 21:45:18] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 21:45:18,582 127.0.0.1 - - [07/Jul/2018 21:45:18] "GET /favicon.ico HTTP/1.1" 404 -
+2018-07-07 21:45:54,910  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 21:45:58,122 127.0.0.1 - - [07/Jul/2018 21:45:58] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 21:46:00,177 127.0.0.1 - - [07/Jul/2018 21:46:00] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 21:47:03,478  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 21:47:06,854 127.0.0.1 - - [07/Jul/2018 21:47:06] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 21:47:33,306  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 21:47:35,894 127.0.0.1 - - [07/Jul/2018 21:47:35] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 21:47:53,566  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 21:47:59,324 127.0.0.1 - - [07/Jul/2018 21:47:59] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 22:01:42,545  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 22:02:14,034 CARD ERROR: CASHMERE is not registerd.
+2018-07-07 22:02:14,034 127.0.0.1 - - [07/Jul/2018 22:02:14] "POST /id_check HTTP/1.1" 403 -
+2018-07-07 22:02:33,661 127.0.0.1 - - [07/Jul/2018 22:02:33] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 22:02:53,755 LOGIN: CASHMERE loged in.
+2018-07-07 22:02:55,462 127.0.0.1 - - [07/Jul/2018 22:02:55] "POST /pw_check HTTP/1.1" 201 -
+2018-07-07 22:03:01,589 127.0.0.1 - - [07/Jul/2018 22:03:01] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 22:03:24,574 CARD ERROR: CASHMERE is not registerd.
+2018-07-07 22:03:24,575 127.0.0.1 - - [07/Jul/2018 22:03:24] "POST /id_check HTTP/1.1" 403 -
+2018-07-07 22:03:25,115 127.0.0.1 - - [07/Jul/2018 22:03:25] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 22:03:27,550 127.0.0.1 - - [07/Jul/2018 22:03:27] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 22:03:39,360 127.0.0.1 - - [07/Jul/2018 22:03:39] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 22:05:28,434 CARD ERROR: CASHMERE is not registerd.
+2018-07-07 22:05:28,434 127.0.0.1 - - [07/Jul/2018 22:05:28] "POST /id_check HTTP/1.1" 403 -
+2018-07-07 22:05:28,977 127.0.0.1 - - [07/Jul/2018 22:05:28] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 22:07:11,267  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 22:07:17,270 LOGOUT: CASHMERE logged out.
+2018-07-07 22:07:17,282 127.0.0.1 - - [07/Jul/2018 22:07:17] "POST /id_check HTTP/1.1" 201 -
+2018-07-07 22:07:23,340 127.0.0.1 - - [07/Jul/2018 22:07:23] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 22:08:19,577  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 22:08:23,243 Exception on /id_check [POST]
+Traceback (most recent call last):
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 32, in id_check
+    if len(usr_status=cur.fetchall()) == 0:
+TypeError: len() takes no keyword arguments
+2018-07-07 22:08:23,264 127.0.0.1 - - [07/Jul/2018 22:08:23] "POST /id_check HTTP/1.1" 500 -
+2018-07-07 22:08:25,713 Exception on /id_check [POST]
+Traceback (most recent call last):
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 32, in id_check
+    if len(usr_status=cur.fetchall()) == 0:
+TypeError: len() takes no keyword arguments
+2018-07-07 22:08:25,713 127.0.0.1 - - [07/Jul/2018 22:08:25] "POST /id_check HTTP/1.1" 500 -
+2018-07-07 22:08:34,903 Exception on /id_check [POST]
+Traceback (most recent call last):
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 32, in id_check
+    if len(usr_status=cur.fetchall()) == 0:
+TypeError: len() takes no keyword arguments
+2018-07-07 22:08:34,903 127.0.0.1 - - [07/Jul/2018 22:08:34] "POST /id_check HTTP/1.1" 500 -
+2018-07-07 22:09:55,216  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 22:09:58,129 CARD LOADED: CASHMERE was touched.
+2018-07-07 22:09:58,146 127.0.0.1 - - [07/Jul/2018 22:09:58] "POST /id_check HTTP/1.1" 201 -
+2018-07-07 22:10:07,048 127.0.0.1 - - [07/Jul/2018 22:10:07] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 22:10:35,103  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 22:10:37,702 CARD LOADED: CASHMERE was touched.
+2018-07-07 22:10:37,714 127.0.0.1 - - [07/Jul/2018 22:10:37] "POST /id_check HTTP/1.1" 201 -
+2018-07-07 22:10:45,552 CARD LOADED: CASHMERE was touched.
+2018-07-07 22:10:45,568 127.0.0.1 - - [07/Jul/2018 22:10:45] "POST /id_check HTTP/1.1" 201 -
+2018-07-07 22:10:50,906 127.0.0.1 - - [07/Jul/2018 22:10:50] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 22:11:14,583 LOGIN: CASHMERE loged in.
+2018-07-07 22:11:16,507 127.0.0.1 - - [07/Jul/2018 22:11:16] "POST /pw_check HTTP/1.1" 201 -
+2018-07-07 22:11:28,235 127.0.0.1 - - [07/Jul/2018 22:11:28] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 22:11:58,144 Exception on /id_check [POST]
+Traceback (most recent call last):
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 33, in id_check
+    if len(usr_status) == 0:
+TypeError: object of type 'NoneType' has no len()
+2018-07-07 22:11:58,148 127.0.0.1 - - [07/Jul/2018 22:11:58] "POST /id_check HTTP/1.1" 500 -
+2018-07-07 22:11:58,689 127.0.0.1 - - [07/Jul/2018 22:11:58] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 22:16:11,248  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 22:16:13,787 CARD ERROR: hogehoge is not registerd.
+2018-07-07 22:16:13,788 127.0.0.1 - - [07/Jul/2018 22:16:13] "POST /id_check HTTP/1.1" 403 -
+2018-07-07 22:16:22,811 CARD ERROR: hogehoge is not registerd.
+2018-07-07 22:16:22,812 127.0.0.1 - - [07/Jul/2018 22:16:22] "POST /id_check HTTP/1.1" 403 -
+2018-07-07 22:16:25,187 CARD ERROR: hogehoge is not registerd.
+2018-07-07 22:16:25,188 127.0.0.1 - - [07/Jul/2018 22:16:25] "POST /id_check HTTP/1.1" 403 -
+2018-07-07 22:16:45,684 LOGOUT: CASHMERE logged out.
+2018-07-07 22:16:45,696 127.0.0.1 - - [07/Jul/2018 22:16:45] "POST /id_check HTTP/1.1" 201 -
+2018-07-07 22:17:24,979 CARD LOADED: CASHMERE was touched.
+2018-07-07 22:17:24,994 127.0.0.1 - - [07/Jul/2018 22:17:24] "POST /id_check HTTP/1.1" 201 -
+2018-07-07 22:17:31,733 CARD LOADED: CASHMERE was touched.
+2018-07-07 22:17:31,742 127.0.0.1 - - [07/Jul/2018 22:17:31] "POST /id_check HTTP/1.1" 201 -
+2018-07-07 22:17:37,004 LOGIN: CASHMERE loged in.
+2018-07-07 22:17:38,546 127.0.0.1 - - [07/Jul/2018 22:17:38] "POST /pw_check HTTP/1.1" 201 -
+2018-07-07 22:20:07,629  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 22:20:12,074 LOGOUT: CASHMERE logged out.
+2018-07-07 22:20:12,086 127.0.0.1 - - [07/Jul/2018 22:20:12] "POST /id_check HTTP/1.1" 201 -
+2018-07-07 22:21:11,176  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 22:21:13,403 CARD LOADED: CASHMERE was touched.
+2018-07-07 22:21:13,420 127.0.0.1 - - [07/Jul/2018 22:21:13] "POST /id_check HTTP/1.1" 201 -
+2018-07-07 22:22:20,988  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 22:22:24,268 Exception on /id_check [POST]
+Traceback (most recent call last):
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 31, in id_check
+    usr_status=usr_status[0].list()
+AttributeError: 'tuple' object has no attribute 'list'
+2018-07-07 22:22:24,273 127.0.0.1 - - [07/Jul/2018 22:22:24] "POST /id_check HTTP/1.1" 500 -
+2018-07-07 22:22:26,761 Exception on /id_check [POST]
+Traceback (most recent call last):
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 31, in id_check
+    usr_status=usr_status[0].list()
+AttributeError: 'tuple' object has no attribute 'list'
+2018-07-07 22:22:26,761 127.0.0.1 - - [07/Jul/2018 22:22:26] "POST /id_check HTTP/1.1" 500 -
+2018-07-07 22:23:32,904  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 22:23:35,628 CARD LOADED: CASHMERE was touched.
+2018-07-07 22:23:35,641 127.0.0.1 - - [07/Jul/2018 22:23:35] "POST /id_check HTTP/1.1" 201 -
+2018-07-07 22:26:10,598  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 22:26:12,629 CARD LOADED: CASHMERE was touched.
+2018-07-07 22:26:12,641 127.0.0.1 - - [07/Jul/2018 22:26:12] "POST /id_check HTTP/1.1" 201 -
+2018-07-07 23:09:59,175  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 23:10:16,159 CARD LOADED: CASHMERE was touched.
+2018-07-07 23:10:16,171 127.0.0.1 - - [07/Jul/2018 23:10:16] "POST /id_check HTTP/1.1" 201 -
+2018-07-07 23:10:26,519 Exception on /pw_check [POST]
+Traceback (most recent call last):
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 114, in pw_check
+    cur.execute('update usr_table set trials ='+ str(trials_cnt+1) +'where Student_id = \''+Student_id+'\'')
+sqlite3.OperationalError: unrecognized token: "1where"
+2018-07-07 23:10:26,524 127.0.0.1 - - [07/Jul/2018 23:10:26] "POST /pw_check HTTP/1.1" 500 -
+2018-07-07 23:11:17,727  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 23:11:21,116 CARD LOADED: CASHMERE was touched.
+2018-07-07 23:11:21,132 127.0.0.1 - - [07/Jul/2018 23:11:21] "POST /id_check HTTP/1.1" 201 -
+2018-07-07 23:11:23,788 127.0.0.1 - - [07/Jul/2018 23:11:23] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:13:11,766 LOGIN: CASHMERE loged in.
+2018-07-07 23:13:13,520 127.0.0.1 - - [07/Jul/2018 23:13:13] "POST /pw_check HTTP/1.1" 201 -
+2018-07-07 23:14:47,095  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 23:15:04,230 LOGIN: CASHMERE loged in.
+2018-07-07 23:15:05,724 127.0.0.1 - - [07/Jul/2018 23:15:05] "POST /pw_check HTTP/1.1" 201 -
+2018-07-07 23:15:30,518 127.0.0.1 - - [07/Jul/2018 23:15:30] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:15:32,755 127.0.0.1 - - [07/Jul/2018 23:15:32] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:15:34,147 127.0.0.1 - - [07/Jul/2018 23:15:34] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:15:35,787 Exception on /pw_check [POST]
+Traceback (most recent call last):
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 114, in pw_check
+    cur.execute('update usr_table set trials ='+ str(trials_cnt+1) +' where Student_id = \''+Student_id+'\'')
+TypeError: must be str, not int
+2018-07-07 23:15:35,792 127.0.0.1 - - [07/Jul/2018 23:15:35] "POST /pw_check HTTP/1.1" 500 -
+2018-07-07 23:15:39,589 Exception on /pw_check [POST]
+Traceback (most recent call last):
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 114, in pw_check
+    cur.execute('update usr_table set trials ='+ str(trials_cnt+1) +' where Student_id = \''+Student_id+'\'')
+TypeError: must be str, not int
+2018-07-07 23:15:39,590 127.0.0.1 - - [07/Jul/2018 23:15:39] "POST /pw_check HTTP/1.1" 500 -
+2018-07-07 23:18:57,329 LOGIN: CASHMERE loged in.
+2018-07-07 23:18:59,003 127.0.0.1 - - [07/Jul/2018 23:18:59] "POST /pw_check HTTP/1.1" 201 -
+2018-07-07 23:19:01,855 LOGIN: CASHMERE loged in.
+2018-07-07 23:19:03,297 127.0.0.1 - - [07/Jul/2018 23:19:03] "POST /pw_check HTTP/1.1" 201 -
+2018-07-07 23:19:19,528 127.0.0.1 - - [07/Jul/2018 23:19:19] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:19:21,122 127.0.0.1 - - [07/Jul/2018 23:19:21] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:19:32,776 127.0.0.1 - - [07/Jul/2018 23:19:32] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:19:47,381  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 23:19:52,521 127.0.0.1 - - [07/Jul/2018 23:19:52] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:19:53,872 127.0.0.1 - - [07/Jul/2018 23:19:53] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:19:55,256 Exception on /pw_check [POST]
+Traceback (most recent call last):
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 114, in pw_check
+    cur.execute('update usr_table set trials ='+ str(trials_cnt+1) +' where Student_id = \''+Student_id+'\'')
+TypeError: must be str, not int
+2018-07-07 23:19:55,262 127.0.0.1 - - [07/Jul/2018 23:19:55] "POST /pw_check HTTP/1.1" 500 -
+2018-07-07 23:21:43,423  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 23:21:58,068 Exception on /pw_check [POST]
+Traceback (most recent call last):
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 114, in pw_check
+    cur.execute('update usr_table set trials ='+ trials_cnt+1 +' where Student_id = \''+Student_id+'\'')
+TypeError: must be str, not int
+2018-07-07 23:21:58,074 127.0.0.1 - - [07/Jul/2018 23:21:58] "POST /pw_check HTTP/1.1" 500 -
+2018-07-07 23:38:44,017  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 23:39:09,535 127.0.0.1 - - [07/Jul/2018 23:39:09] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:39:11,044 127.0.0.1 - - [07/Jul/2018 23:39:11] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:39:12,078 127.0.0.1 - - [07/Jul/2018 23:39:12] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:39:13,463 127.0.0.1 - - [07/Jul/2018 23:39:13] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:39:14,421 127.0.0.1 - - [07/Jul/2018 23:39:14] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:39:16,093 127.0.0.1 - - [07/Jul/2018 23:39:16] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:39:16,645 127.0.0.1 - - [07/Jul/2018 23:39:16] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:39:17,207 127.0.0.1 - - [07/Jul/2018 23:39:17] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:39:17,829 127.0.0.1 - - [07/Jul/2018 23:39:17] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:39:18,389 127.0.0.1 - - [07/Jul/2018 23:39:18] "POST /pw_check HTTP/1.1" 403 -
+2018-07-07 23:39:41,311 127.0.0.1 - - [07/Jul/2018 23:39:41] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 23:40:10,357 LOGIN: CASHMERE loged in.
+2018-07-07 23:40:10,904 127.0.0.1 - - [07/Jul/2018 23:40:10] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 23:40:11,857 127.0.0.1 - - [07/Jul/2018 23:40:11] "POST /pw_check HTTP/1.1" 201 -
+2018-07-07 23:40:15,003 127.0.0.1 - - [07/Jul/2018 23:40:15] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 23:41:05,244  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 23:41:10,477 127.0.0.1 - - [07/Jul/2018 23:41:10] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 23:41:22,457 LOGIN: CASHMERE loged in.
+2018-07-07 23:41:22,990 127.0.0.1 - - [07/Jul/2018 23:41:22] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 23:41:24,080 127.0.0.1 - - [07/Jul/2018 23:41:24] "POST /pw_check HTTP/1.1" 201 -
+2018-07-07 23:43:02,397 LOGIN: CASHMERE loged in.
+2018-07-07 23:43:02,928 127.0.0.1 - - [07/Jul/2018 23:43:02] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 23:43:03,864 127.0.0.1 - - [07/Jul/2018 23:43:03] "POST /pw_check HTTP/1.1" 201 -
+2018-07-07 23:43:28,069 LOGOUT: CASHMERE logged out.
+2018-07-07 23:43:28,078 127.0.0.1 - - [07/Jul/2018 23:43:28] "POST /id_check HTTP/1.1" 201 -
+2018-07-07 23:43:28,607 127.0.0.1 - - [07/Jul/2018 23:43:28] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 23:43:33,425  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 23:43:36,142 CARD LOADED: CASHMERE was touched.
+2018-07-07 23:43:36,150 127.0.0.1 - - [07/Jul/2018 23:43:36] "POST /id_check HTTP/1.1" 201 -
+2018-07-07 23:43:41,159 LOGIN: CASHMERE loged in.
+2018-07-07 23:43:42,689 127.0.0.1 - - [07/Jul/2018 23:43:42] "POST /pw_check HTTP/1.1" 201 -
+2018-07-07 23:43:45,068 LOGOUT: CASHMERE logged out.
+2018-07-07 23:43:45,081 127.0.0.1 - - [07/Jul/2018 23:43:45] "POST /id_check HTTP/1.1" 201 -
+2018-07-07 23:43:50,554 LOGIN: CASHMERE loged in.
+2018-07-07 23:43:52,165 127.0.0.1 - - [07/Jul/2018 23:43:52] "POST /pw_check HTTP/1.1" 201 -
+2018-07-07 23:43:54,580 127.0.0.1 - - [07/Jul/2018 23:43:54] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 23:44:01,137 LOGOUT: CASHMERE logged out.
+2018-07-07 23:44:01,145 127.0.0.1 - - [07/Jul/2018 23:44:01] "POST /id_check HTTP/1.1" 201 -
+2018-07-07 23:44:01,730 127.0.0.1 - - [07/Jul/2018 23:44:01] "GET /db_operation/print HTTP/1.1" 200 -

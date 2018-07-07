@@ -1,0 +1,50 @@
+<!-- DOCUMENTS HTML -->
+<html>
+    <head>
+        <title> login </title>
+    </head>
+    <body>
+    <h1>login form</h1>
+    {% if Student_id %}
+        <h3>{{ Student_id }}さんのカードを読み取りました。</h3>
+    {% endif%}
+    {% if status %}    
+    <dev>
+        <form method='POST' action='/login/result' >
+            <p>パスワード</p>
+            <input type='password' name='passwd'required >
+            <!--  <script>
+                function func(data){
+                document.write("<input type='hidden' name='Student_id' name= "+data+" >");
+                }
+                func("{{ Student_id|safe }}");
+            </script> -->
+            <input type='submit' value='send'>
+            <p>パスワードを間違えています</p>
+        </form>
+    </dev>
+    {% else %}
+    <dev>
+        <form method='POST' action='/login/result' >
+            <p>パスワード</p>
+            <input type='password' name='passwd'required >
+            <input type='submit' value='send'>
+        </form>
+    </dev>
+    {% endif %}
+    <dev>
+        <form method='POST' action='/db_operation'>
+            <p>DB操作</p>
+            <input type='submit' value='DB操作'>
+        </form>
+    </dev>
+    <!--
+    <dev>
+        <form method='POST' action='/db_operation/print'>
+            <p>テーブルを表示</p>
+            <input type='submit' value='表示'>
+        </form>
+    </dev>
+    -->
+    </body>
+</head>
