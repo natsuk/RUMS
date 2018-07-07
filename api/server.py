@@ -139,7 +139,7 @@ def register():
     # POSTされたID,PWをデータベースに登録
     # 重複登録時のエラー回避
     try:
-        cur.execute('insert into usr_table values(\''+Student_id+'\',\''+pw+'\',0,"")')
+        cur.execute('insert into usr_table values(\''+Student_id+'\',\''+pw+'\',0,"",0,"allow")')
         conn.commit()
         cur.execute('select Student_id from usr_table where Student_id = \'' +Student_id+ '\'')
         if len(cur.fetchall()) == 0:
@@ -159,7 +159,7 @@ def register():
         return response
         
 # ユーザの削除
-@app.route('/delete',methods=['POST'])
+#@app.route('/delete',methods=['POST'])
 def delete():
     # POSTされたjsonの取得
     json_msg = request.json
