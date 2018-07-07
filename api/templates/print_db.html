@@ -12,14 +12,16 @@
             <th valign="top">ID</th>
             <th valign="top">passwd</th>
             <th valign="top">inout_state</th>
+	    <th valign="top">permission</th>
             </tr>            
             {% if array %}
                 {% for i in range(count) %}
                     <tr> 
                         <td>{{ array[i][0] }}</td>
-                        <td>{{ array[i][1] }}</td>
-                        <!-- <td> 非公開  </td> -->
+                        <!--<td>{{ array[i][1] }}</td>-->
+                        <td> ******  </td>
                         <td>{{ array[i][2] }}</td>
+			<td>{{ array[i][5] }}</td>
                     </tr> 
                 {% endfor %}
             {% endif %}   

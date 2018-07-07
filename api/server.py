@@ -35,6 +35,12 @@ def id_check():
         return response
 
     # ログイン状態取得
+    # TODO: DBにログイン試行回数のカラムを追加
+    # TODO: DBのログイン試行回数の情報を取得
+    # TODO: 試行回数の回数は設定ファイルを用いる
+    # TODO: 試行回数をいじるための機能追加
+    # TODO: 凍結に使用するカラムも追加(カードタッチのときにはじく？)
+    # TODO: 認証機能として時間を使用していることを確認(使用にあっているか確認)
     cur.execute('select inout from usr_table where Student_id = \'' +Student_id + '\'')
     data = cur.fetchone() # data[0] is inout
     inout = data[0]

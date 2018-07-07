@@ -47,3 +47,41 @@ smtplib.SMTPAuthenticationError: (535, b'authorization failed (#5.7.0)')
 2018-06-22 18:48:36,675 127.0.0.1 - - [22/Jun/2018 18:48:36] "POST /id_check HTTP/1.1" 201 -
 2018-06-22 18:48:38,699 LOGIN: CASHMERE loged in.
 2018-06-22 18:48:40,282 127.0.0.1 - - [22/Jun/2018 18:48:40] "POST /pw_check HTTP/1.1" 201 -
+2018-06-25 16:01:45,789  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-06-25 16:01:53,640 LOGOUT: CASHMERE logged out.
+2018-06-25 16:01:53,651 127.0.0.1 - - [25/Jun/2018 16:01:53] "POST /id_check HTTP/1.1" 201 -
+2018-06-25 16:01:59,290 CARD LOADED: CASHMERE was touched.
+2018-06-25 16:01:59,300 127.0.0.1 - - [25/Jun/2018 16:01:59] "POST /id_check HTTP/1.1" 201 -
+2018-06-25 16:02:10,623 127.0.0.1 - - [25/Jun/2018 16:02:10] "POST /pw_check HTTP/1.1" 403 -
+2018-06-25 16:02:55,789 127.0.0.1 - - [25/Jun/2018 16:02:55] "GET /db_operation HTTP/1.1" 200 -
+2018-06-25 16:02:56,424 127.0.0.1 - - [25/Jun/2018 16:02:56] "GET /favicon.ico HTTP/1.1" 404 -
+2018-06-25 16:02:57,471 127.0.0.1 - - [25/Jun/2018 16:02:57] "GET /db_operation/print HTTP/1.1" 200 -
+2018-06-25 16:03:45,841 127.0.0.1 - - [25/Jun/2018 16:03:45] "GET /db_operation/print HTTP/1.1" 200 -
+2018-06-25 16:03:51,059 LOGIN: CASHMERE loged in.
+2018-06-25 16:03:55,366  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-06-25 16:03:58,852 CARD LOADED: CASHMERE was touched.
+2018-06-25 16:03:58,869 127.0.0.1 - - [25/Jun/2018 16:03:58] "POST /id_check HTTP/1.1" 201 -
+2018-06-25 16:04:02,646 LOGIN: CASHMERE loged in.
+2018-06-25 16:04:04,298 127.0.0.1 - - [25/Jun/2018 16:04:04] "POST /pw_check HTTP/1.1" 201 -
+2018-06-25 16:04:18,268 LOGIN: CASHMERE loged in.
+2018-06-25 16:04:19,870 127.0.0.1 - - [25/Jun/2018 16:04:19] "POST /pw_check HTTP/1.1" 201 -
+2018-06-25 16:04:25,227 127.0.0.1 - - [25/Jun/2018 16:04:25] "GET /db_operation/print HTTP/1.1" 200 -
+2018-06-25 16:07:45,056  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-06-25 16:07:52,491 127.0.0.1 - - [25/Jun/2018 16:07:52] "GET /db_operation HTTP/1.1" 200 -
+2018-06-25 16:07:57,359 127.0.0.1 - - [25/Jun/2018 16:07:57] "GET /room HTTP/1.1" 200 -
+2018-06-25 16:07:57,702 127.0.0.1 - - [25/Jun/2018 16:07:57] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2018-06-25 16:07:57,898 127.0.0.1 - - [25/Jun/2018 16:07:57] "GET /static/jquery/jquery-3.3.1.min.js HTTP/1.1" 404 -
+2018-06-25 16:07:58,009 127.0.0.1 - - [25/Jun/2018 16:07:58] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+2018-07-07 21:43:15,709  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 21:44:37,563  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 21:45:18,174 127.0.0.1 - - [07/Jul/2018 21:45:18] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 21:45:18,582 127.0.0.1 - - [07/Jul/2018 21:45:18] "GET /favicon.ico HTTP/1.1" 404 -
+2018-07-07 21:45:54,910  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 21:45:58,122 127.0.0.1 - - [07/Jul/2018 21:45:58] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 21:46:00,177 127.0.0.1 - - [07/Jul/2018 21:46:00] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 21:47:03,478  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 21:47:06,854 127.0.0.1 - - [07/Jul/2018 21:47:06] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 21:47:33,306  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 21:47:35,894 127.0.0.1 - - [07/Jul/2018 21:47:35] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-07 21:47:53,566  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-07 21:47:59,324 127.0.0.1 - - [07/Jul/2018 21:47:59] "GET /db_operation/print HTTP/1.1" 200 -
