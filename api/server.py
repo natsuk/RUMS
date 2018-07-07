@@ -24,27 +24,31 @@ def id_check():
     cur = conn.cursor()
 
     # POSTされたIDをDBと照合するための処理
-    cur.execute('select Student_id from usr_table where Student_id = \'' +Student_id+ '\'')
+    cur.execute('select Student_id,permission from usr_table where Student_id = \'' +Student_id+ '\'')
     response = Response()
     #IDがあるかないか
-    if len(cur.fetchall()) == 0:
+    usr_status=cur.fetchall()
+    usr_status=list(usr_status[0])
+    if len(usr_status) == 0:
         response.status_code = 403
-        conn.commit()
         cur.close()
         logging.info('CARD ERROR: '+Student_id+' is not registerd.')
         return response
-
+    # エラー処理
+    if usr_status[1] != 'allow':
+        response.status_code = 403
+        cur.close()
+        logging.info('permission denied: '+Student_id+' exceeded the specified number of times.')
+        return response
     # ログイン状態取得
-    # TODO: DBにログイン試行回数のカラムを追加
     # TODO: DBのログイン試行回数の情報を取得
     # TODO: 試行回数の回数は設定ファイルを用いる
     # TODO: 試行回数をいじるための機能追加
-    # TODO: 凍結に使用するカラムも追加(カードタッチのときにはじく？)
     # TODO: 認証機能として時間を使用していることを確認(使用にあっているか確認)
     cur.execute('select inout from usr_table where Student_id = \'' +Student_id + '\'')
     data = cur.fetchone() # data[0] is inout
     inout = data[0]
-    
+
     if inout == 1: #ログイン状態にあった場合
         cur.execute('update usr_table set inout = 0 where Student_id = \''+Student_id+'\'')
         response.status_code = 201
@@ -77,34 +81,40 @@ def pw_check():
     cur = conn.cursor()
 
     # POSTされたIDによってpasswardを引き出す
-    cur.execute('select passwd, token from usr_table where Student_id = \'' +Student_id + '\'')
+    cur.execute('select passwd, token, trials, permission from usr_table where Student_id = \'' +Student_id + '\'')
     response = Response()
     data = cur.fetchone()
     if len(data) == 0:
         response.status_code = 403
-        conn.commit()
         cur.close()
         logging.info('UNEXPECTED ERROR: maybe DB error.(/pw_check)')
         return response
     
     true_pw = data[0]
     token = data[1]
+    trials_cnt = data[2]
+    permission = data[3]
     print (data)
     print(true_pw)
     # DBから引き抜いたPWとtokenを合成、ハッシュ化
     made_hash = script.make_hash_of_synthesized_str(true_pw,token)
-    
     # パスワードの判定
     response = Response()
     if got_pw == made_hash:
         response.status_code=201
         # DBのinout_stateを1に
-        cur.execute('update usr_table set inout = 1 where Student_id = \''+Student_id+'\'')
+        cur.execute('update usr_table set inout = 1,trials = 0 where Student_id = \''+Student_id+'\'')
         logging.info('LOGIN: '+Student_id+' loged in.')
         if mail['debug']==False: # trueでメール送信
             mailfunc.send(Student_id,mail)
-    else:
+    elif permission != 'allow':
         response.status_code = 403
+    else:
+        cur.execute('update usr_table set trials ='+ str(int(trials_cnt)+1) +' where Student_id = \''+Student_id+'\'')
+        if trials_cnt + 1 == trials_MAX:
+            cur.execute('update usr_table set permission = "deny" where Student_id = \''+Student_id+'\'')
+        response.status_code = 403
+
    
     # DBの更新を保存&DBクローズ
     conn.commit()
@@ -209,5 +219,6 @@ if __name__ == '__main__':
         config = json.load(f)
         database = config['DATABASE']
         capacity = config['capacity'] #ここでの宣言はグローバル変数扱い
+        trials_MAX = config['trials']
         mail = config['mail']
     app.run(host='0.0.0.0',ssl_context=context, port=8443,debug=False)
