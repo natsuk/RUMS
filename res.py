@@ -44,6 +44,9 @@ class res():
         
     "パスワードチェック 1 = 成功　0 ＝ 失敗"
     def post_pw(self,passwd):
+        
+        passwd = self.id + passwd
+        passwd = hashlib.sha256(passwd.encode()).hexdigest()
         #ソルトを混ぜてハッシュ化
         passwd += self.solt
         self.hash_pw = hashlib.sha256(passwd.encode()).hexdigest()
@@ -69,7 +72,9 @@ class res():
     def register(self,id,passwd):
         
         #データまとめてjsonに
-        postid = {"card_id":id,"passwd":passwd}
+        pass = id + passwd;
+        pass = hashlib.sha256(pass.encode()).hexdigest()
+        postid = {"passwd":pass}
         headers = {'content-type': 'application/json'}
         postid = json.dumps(postid)
         
