@@ -74,7 +74,7 @@ class res():
         #データまとめてjsonに
         pass = id + passwd;
         pass = hashlib.sha256(pass.encode()).hexdigest()
-        postid = {"passwd":pass}
+        postid = {"id":id,"passwd":pass}
         headers = {'content-type': 'application/json'}
         postid = json.dumps(postid)
         
