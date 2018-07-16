@@ -6,7 +6,6 @@ import script
 from db import DB_operation
 import ssl
 import logging
-import mailfunc
 
 app = Flask(__name__)
 context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
@@ -24,31 +23,21 @@ def id_check():
     cur = conn.cursor()
 
     # POSTされたIDをDBと照合するための処理
-    cur.execute('select Student_id,permission from usr_table where Student_id = \'' +Student_id+ '\'')
+    cur.execute('select Student_id from usr_table where Student_id = \'' +Student_id+ '\'')
     response = Response()
     #IDがあるかないか
-    usr_status=cur.fetchall()
-    usr_status=list(usr_status[0])
-    if len(usr_status) == 0:
+    if len(cur.fetchall()) == 0:
         response.status_code = 403
+        conn.commit()
         cur.close()
         logging.info('CARD ERROR: '+Student_id+' is not registerd.')
         return response
-    # エラー処理
-    if usr_status[1] != 'allow':
-        response.status_code = 403
-        cur.close()
-        logging.info('permission denied: '+Student_id+' exceeded the specified number of times.')
-        return response
+
     # ログイン状態取得
-    # TODO: DBのログイン試行回数の情報を取得
-    # TODO: 試行回数の回数は設定ファイルを用いる
-    # TODO: 試行回数をいじるための機能追加
-    # TODO: 認証機能として時間を使用していることを確認(使用にあっているか確認)
     cur.execute('select inout from usr_table where Student_id = \'' +Student_id + '\'')
     data = cur.fetchone() # data[0] is inout
     inout = data[0]
-
+    
     if inout == 1: #ログイン状態にあった場合
         cur.execute('update usr_table set inout = 0 where Student_id = \''+Student_id+'\'')
         response.status_code = 201
@@ -81,47 +70,39 @@ def pw_check():
     cur = conn.cursor()
 
     # POSTされたIDによってpasswardを引き出す
-    cur.execute('select passwd, token, trials, permission from usr_table where Student_id = \'' +Student_id + '\'')
+    cur.execute('select passwd, token from usr_table where Student_id = \'' +Student_id + '\'')
     response = Response()
     data = cur.fetchone()
     if len(data) == 0:
         response.status_code = 403
+        conn.commit()
         cur.close()
         logging.info('UNEXPECTED ERROR: maybe DB error.(/pw_check)')
         return response
     
     true_pw = data[0]
     token = data[1]
-    trials_cnt = data[2]
-    permission = data[3]
     print (data)
     print(true_pw)
     # DBから引き抜いたPWとtokenを合成、ハッシュ化
     made_hash = script.make_hash_of_synthesized_str(true_pw,token)
+    
     # パスワードの判定
     response = Response()
     if got_pw == made_hash:
         response.status_code=201
         # DBのinout_stateを1に
-        cur.execute('update usr_table set inout = 1,trials = 0 where Student_id = \''+Student_id+'\'')
+        cur.execute('update usr_table set inout = 1 where Student_id = \''+Student_id+'\'')
         logging.info('LOGIN: '+Student_id+' loged in.')
-        if mail['debug']==False: # trueでメール送信
-            mailfunc.send(Student_id,mail)
-    elif permission != 'allow':
-        response.status_code = 403
     else:
-        cur.execute('update usr_table set trials ='+ str(int(trials_cnt)+1) +' where Student_id = \''+Student_id+'\'')
-        if trials_cnt + 1 == trials_MAX:
-            cur.execute('update usr_table set permission = "deny" where Student_id = \''+Student_id+'\'')
         response.status_code = 403
-
+        #logging.info('PWERROR: '+Student_id+' made a mistake in PW.')
    
     # DBの更新を保存&DBクローズ
     conn.commit()
     cur.close()
     return response
 
-# ユーザの登録
 @app.route('/register',methods=['POST'])
 def register():
     # POSTされたjsonの取得
@@ -137,11 +118,10 @@ def register():
     response = Response()
 
     # POSTされたID,PWをデータベースに登録
-    # 重複登録時のエラー回避
     try:
-        cur.execute('insert into usr_table values(\''+Student_id+'\',\''+pw+'\',0,"",0,"allow")')
+        cur.execute('insert into usr_table values(\''+Student_id+'\',\''+pw+'\',0,"")')
         conn.commit()
-        cur.execute('select Student_id from usr_table where Student_id = \'' +Student_id+ '\'')
+        id = cur.execute('select Student_id from usr_table where Student_id = \'' +Student_id+ '\'')
         if len(cur.fetchall()) == 0:
             response.status_code = 403
             cur.close()
@@ -158,45 +138,8 @@ def register():
         print('!!! cannot register card_id. maybe UNIQUE.!!!')
         return response
         
-# ユーザの削除
-#@app.route('/delete',methods=['POST'])
-def delete():
-    # POSTされたjsonの取得
-    json_msg = request.json
-    # jsonの展開
-    Student_id = json_msg['card_id']
-    print(Student_id)
-    # DB接続(初期化)
-    conn = sqlite3.connect(database)
-    cur = conn.cursor()
-    response = Response()
-
-    # POSTされたID,PWをDBからdelete
-    try:
-        cur.execute('delete from usr_table where Student_id = \''+Student_id+'\'')
-        conn.commit()
-        try:
-            cur.execute('select Student_id from usr_table where Student_id = \'' +Student_id+ '\'')
-            response.status_code = 403
-            cur.close()
-            return response
-        except:
-            response.status_code = 201
-            cur.close()
-            logging.info('DELETE: '+Student_id+' deleted')
-            return response
-    except:
-        cur.close()
-        response.status_code = 403
-        logging.warning('DROP ERROR')
-        print('!!! cannot drop card_id.!!!')
-        return response
 
 ### HTML server #########################################################
-
-@app.route('/')
-def index():
-    return redirect(url_for('db_ope_menu'))
 
 # DBの操作選択画面
 @app.route('/db_operation' )
@@ -212,8 +155,7 @@ def p_db():
 def room_status():
     inout_sum=db.count_inout()
     room_raito = inout_sum / capacity * 100
-    db.inout_db()
-    return render_template('capacity.html',raito=int(room_raito),array=db.array,count=db.rows)
+    return render_template('capacity.html',raito=int(room_raito))
 # 部屋利用者画面
 
 
@@ -224,6 +166,4 @@ if __name__ == '__main__':
         config = json.load(f)
         database = config['DATABASE']
         capacity = config['capacity'] #ここでの宣言はグローバル変数扱い
-        trials_MAX = config['trials']
-        mail = config['mail']
     app.run(host='0.0.0.0',ssl_context=context, port=8443,debug=False)

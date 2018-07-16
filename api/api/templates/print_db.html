@@ -1,0 +1,32 @@
+<!-- DOCUMENT HTML -->
+<html>
+    <head>
+        <title> print </title>
+    </head>
+
+    <body>
+    <h1>表示</h1>
+        <table border="1">
+        <tbody>
+            <tr style="color:#ffffff;" bgcolor="#800000">
+            <th valign="top">ID</th>
+            <th valign="top">passwd</th>
+            <th valign="top">inout_state</th>
+            </tr>            
+            {% if array %}
+                {% for i in range(count) %}
+                    <tr> 
+                        <td>{{ array[i][0] }}</td>
+                        <td>{{ array[i][1] }}</td>
+                        <!-- <td> 非公開  </td> -->
+                        <td>{{ array[i][2] }}</td>
+                    </tr> 
+                {% endfor %}
+            {% endif %}   
+        <dev>
+            <form action='/db_operation'>
+                <input type='submit' value='戻る'>
+            </form>
+        </dev>
+    </body>
+</html>

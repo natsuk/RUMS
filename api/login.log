@@ -411,3 +411,104 @@ TypeError: must be str, not int
 2018-07-07 23:44:01,137 LOGOUT: CASHMERE logged out.
 2018-07-07 23:44:01,145 127.0.0.1 - - [07/Jul/2018 23:44:01] "POST /id_check HTTP/1.1" 201 -
 2018-07-07 23:44:01,730 127.0.0.1 - - [07/Jul/2018 23:44:01] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-09 16:34:57,893  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-09 16:35:46,705 127.0.0.1 - - [09/Jul/2018 16:35:46] "GET /db_operation HTTP/1.1" 200 -
+2018-07-09 16:35:47,345 127.0.0.1 - - [09/Jul/2018 16:35:47] "GET /favicon.ico HTTP/1.1" 404 -
+2018-07-09 16:35:48,835 127.0.0.1 - - [09/Jul/2018 16:35:48] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-09 16:36:04,728 127.0.0.1 - - [09/Jul/2018 16:36:04] "GET /db_operation? HTTP/1.1" 200 -
+2018-07-09 16:36:06,349 127.0.0.1 - - [09/Jul/2018 16:36:06] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-09 16:37:20,594 127.0.0.1 - - [09/Jul/2018 16:37:20] "GET /room HTTP/1.1" 200 -
+2018-07-09 16:37:20,930 127.0.0.1 - - [09/Jul/2018 16:37:20] "GET /static/jquery/jquery-3.3.1.min.js HTTP/1.1" 404 -
+2018-07-09 16:37:20,938 127.0.0.1 - - [09/Jul/2018 16:37:20] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2018-07-09 16:37:21,243 127.0.0.1 - - [09/Jul/2018 16:37:21] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+2018-07-16 13:39:41,628  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-16 13:39:50,552 127.0.0.1 - - [16/Jul/2018 13:39:50] "GET /db_operation HTTP/1.1" 200 -
+2018-07-16 13:39:51,165 127.0.0.1 - - [16/Jul/2018 13:39:51] "GET /favicon.ico HTTP/1.1" 404 -
+2018-07-16 13:39:51,997 127.0.0.1 - - [16/Jul/2018 13:39:51] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-16 13:39:53,382 127.0.0.1 - - [16/Jul/2018 13:39:53] "GET /db_operation? HTTP/1.1" 200 -
+2018-07-16 13:40:02,563 127.0.0.1 - - [16/Jul/2018 13:40:02] "GET /room HTTP/1.1" 200 -
+2018-07-16 13:40:02,916 127.0.0.1 - - [16/Jul/2018 13:40:02] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2018-07-16 13:40:03,085 127.0.0.1 - - [16/Jul/2018 13:40:03] "GET /static/jquery/jquery-3.3.1.min.js HTTP/1.1" 404 -
+2018-07-16 13:40:03,222 127.0.0.1 - - [16/Jul/2018 13:40:03] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+2018-07-16 13:42:57,023  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-16 13:43:02,473 127.0.0.1 - - [16/Jul/2018 13:43:02] "GET /room HTTP/1.1" 200 -
+2018-07-16 13:43:02,804 127.0.0.1 - - [16/Jul/2018 13:43:02] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2018-07-16 13:43:02,844 127.0.0.1 - - [16/Jul/2018 13:43:02] "GET /static/jquery/jquery-3.3.1.min.js HTTP/1.1" 404 -
+2018-07-16 13:43:27,749 127.0.0.1 - - [16/Jul/2018 13:43:27] "GET /db_operation? HTTP/1.1" 200 -
+2018-07-16 13:44:42,522  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-16 13:44:48,535 127.0.0.1 - - [16/Jul/2018 13:44:48] "GET /room HTTP/1.1" 200 -
+2018-07-16 13:44:48,860 127.0.0.1 - - [16/Jul/2018 13:44:48] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2018-07-16 13:44:48,979 127.0.0.1 - - [16/Jul/2018 13:44:48] "GET /static/jquery/jquery-3.3.1.min.js HTTP/1.1" 404 -
+2018-07-16 13:44:49,165 127.0.0.1 - - [16/Jul/2018 13:44:49] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+2018-07-16 13:47:50,721  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-16 13:47:58,981 Exception on /room [GET]
+Traceback (most recent call last):
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 211, in room_status
+    db.inout_db()
+  File "/home/natsuki/api/db.py", line 37, in inout_db
+    for row in self.cur.execute('select * from '+TABLE+' order by Student_id where inout=1'):
+sqlite3.OperationalError: near "where": syntax error
+2018-07-16 13:47:59,009 127.0.0.1 - - [16/Jul/2018 13:47:59] "GET /room HTTP/1.1" 500 -
+2018-07-16 13:48:05,484 127.0.0.1 - - [16/Jul/2018 13:48:05] "GET /db_operation? HTTP/1.1" 200 -
+2018-07-16 13:48:07,484 127.0.0.1 - - [16/Jul/2018 13:48:07] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-16 13:48:08,914 127.0.0.1 - - [16/Jul/2018 13:48:08] "GET /db_operation HTTP/1.1" 200 -
+2018-07-16 13:48:13,153 127.0.0.1 - - [16/Jul/2018 13:48:13] "GET /db_operation HTTP/1.1" 200 -
+2018-07-16 13:48:13,812 127.0.0.1 - - [16/Jul/2018 13:48:13] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-16 13:48:14,581 127.0.0.1 - - [16/Jul/2018 13:48:14] "GET /db_operation? HTTP/1.1" 200 -
+2018-07-16 13:48:15,388 Exception on /room [GET]
+Traceback (most recent call last):
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/natsuki/.pyenv/versions/3.6.5/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "server.py", line 211, in room_status
+    db.inout_db()
+  File "/home/natsuki/api/db.py", line 37, in inout_db
+    for row in self.cur.execute('select * from '+TABLE+' order by Student_id where inout=1'):
+sqlite3.OperationalError: near "where": syntax error
+2018-07-16 13:48:15,389 127.0.0.1 - - [16/Jul/2018 13:48:15] "GET /room HTTP/1.1" 500 -
+2018-07-16 13:53:35,621  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-16 13:53:39,105 127.0.0.1 - - [16/Jul/2018 13:53:39] "GET /room HTTP/1.1" 200 -
+2018-07-16 13:53:39,464 127.0.0.1 - - [16/Jul/2018 13:53:39] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2018-07-16 13:53:39,796 127.0.0.1 - - [16/Jul/2018 13:53:39] "GET /static/jquery/jquery-3.3.1.min.js HTTP/1.1" 404 -
+2018-07-16 13:53:39,798 127.0.0.1 - - [16/Jul/2018 13:53:39] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+2018-07-16 13:56:12,303  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-16 13:56:20,239 127.0.0.1 - - [16/Jul/2018 13:56:20] "GET /room HTTP/1.1" 200 -
+2018-07-16 13:56:20,568 127.0.0.1 - - [16/Jul/2018 13:56:20] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2018-07-16 13:56:20,631 127.0.0.1 - - [16/Jul/2018 13:56:20] "GET /static/jquery/jquery-3.3.1.min.js HTTP/1.1" 404 -
+2018-07-16 13:56:21,860 127.0.0.1 - - [16/Jul/2018 13:56:21] "GET /db_operation? HTTP/1.1" 200 -
+2018-07-16 13:56:54,203  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-16 13:56:57,162 127.0.0.1 - - [16/Jul/2018 13:56:57] "GET /db_operation? HTTP/1.1" 200 -
+2018-07-16 13:56:58,674 127.0.0.1 - - [16/Jul/2018 13:56:58] "GET /room HTTP/1.1" 200 -
+2018-07-16 13:56:59,007 127.0.0.1 - - [16/Jul/2018 13:56:59] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2018-07-16 13:56:59,224 127.0.0.1 - - [16/Jul/2018 13:56:59] "GET /static/jquery/jquery-3.3.1.min.js HTTP/1.1" 404 -
+2018-07-16 13:56:59,316 127.0.0.1 - - [16/Jul/2018 13:56:59] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+2018-07-16 13:57:05,527 127.0.0.1 - - [16/Jul/2018 13:57:05] "GET /db_operation? HTTP/1.1" 200 -
+2018-07-16 13:57:06,618 127.0.0.1 - - [16/Jul/2018 13:57:06] "GET /db_operation/print HTTP/1.1" 200 -
+2018-07-16 13:57:08,552 127.0.0.1 - - [16/Jul/2018 13:57:08] "GET /db_operation? HTTP/1.1" 200 -
+2018-07-16 13:58:52,805  * Running on https://0.0.0.0:8443/ (Press CTRL+C to quit)
+2018-07-16 13:58:58,749 127.0.0.1 - - [16/Jul/2018 13:58:58] "GET /db_operation? HTTP/1.1" 200 -
+2018-07-16 13:59:03,899 127.0.0.1 - - [16/Jul/2018 13:59:03] "GET / HTTP/1.1" 302 -
+2018-07-16 13:59:04,208 127.0.0.1 - - [16/Jul/2018 13:59:04] "GET /db_operation HTTP/1.1" 200 -
+2018-07-16 13:59:10,843 127.0.0.1 - - [16/Jul/2018 13:59:10] "GET / HTTP/1.1" 302 -
+2018-07-16 13:59:11,151 127.0.0.1 - - [16/Jul/2018 13:59:11] "GET /db_operation HTTP/1.1" 200 -

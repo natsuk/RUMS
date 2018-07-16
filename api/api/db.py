@@ -29,12 +29,3 @@ class DB_operation(DB_init):
         ret=self.cur.fetchone()
         self.close_db()
         return ret[0]   
-
-    def inout_db(self):
-        self.connect_db()
-        self.array=[]
-        self.rows = 0
-        for row in self.cur.execute('select * from '+TABLE+' where inout=1 order by Student_id'):
-            self.array.append(row)
-            self.rows += 1
-        self.close_db()
